@@ -5,43 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>六合彩</title>
     <style>
-:root{--bg-dark:#120f0d;--bg-card:#1c1815;--primary:#d4a373;--accent:#bc6c25;--text-main:#fefae0;--text-dim:#a98467;--card-shadow:0 20px 40px rgba(0,0,0,0.6);--ms-red:linear-gradient(145deg, #ff5f5f, #b30000);--ms-blue:linear-gradient(145deg, #5ba4ff, #0047ab);--ms-green:linear-gradient(145deg, #4cd137, #228b22)}*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif}body{background-color:var(--bg-dark);background-image:radial-gradient(circle at center,#1e1a17 0,#120f0d 100%);color:var(--text-main);display:flex;justify-content:center;align-items:center;min-height:100vh;min-height:100dvh;overflow:hidden}.container{background:var(--bg-card);width:100%;max-width:500px;height:90vh;max-height:800px;padding:2.5rem 2rem;border-radius:40px;box-shadow:var(--card-shadow);border:1px solid rgba(212,163,115,.15);display:flex;flex-direction:column;position:relative}@media (max-width:600px){body{padding:0}.container{height:100dvh;max-height:100dvh;border-radius:0;padding:2rem 1.5rem}}header{text-align:center;flex-shrink:0}h1{font-size:2rem;margin-bottom:.5rem;letter-spacing:3px;color:var(--primary);text-transform:uppercase;font-weight:900}p.subtitle{margin-bottom:1.5rem}p.subtitle a{color:var(--text-dim);text-decoration:none;font-size:.9rem;opacity:.8}.controls{display:flex;justify-content:center;margin-bottom:2rem;flex-shrink:0}.radio-group{display:flex;background:rgba(0,0,0,.3);padding:6px;border-radius:16px;border:1px solid rgba(212,163,115,.1)}.radio-group label{padding:12px 24px;cursor:pointer;border-radius:12px;transition:.3s;font-weight:700;color:var(--text-dim);font-size:1.1rem}.radio-group input{display:none}.radio-group input:checked+label{background:var(--accent);color:#fff;box-shadow:0 4px 12px rgba(188,108,37,.3)}#numbers-display{flex-grow:1;display:flex;flex-wrap:wrap;justify-content:center;align-content:center;gap:15px;margin:1rem 0}.ball{width:65px;height:65px;color:#fff;border-radius:50%;display:flex;justify-content:center;align-items:center;font-weight:800;font-size:1.5rem;box-shadow:0 8px 15px rgba(0,0,0,.4),inset 0 -4px 4px rgba(0,0,0,.2);animation:.5s cubic-bezier(.175,.885,.32,1.275) forwards popIn;opacity:0;text-shadow:1px 1px 2px rgba(0,0,0,.3)}.ball.red{background:var(--ms-red)}.ball.blue{background:var(--ms-blue)}.ball.green{background:var(--ms-green)}@keyframes popIn{from{transform:scale(0) translateY(30px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}.footer-actions{flex-shrink:0}.btn-generate{background:var(--primary);border:none;color:var(--bg-dark);padding:20px;font-size:1.1rem;font-weight:800;border-radius:20px;cursor:pointer;transition:.3s;width:100%;text-transform:uppercase;letter-spacing:2px;box-shadow:0 10px 20px rgba(212,163,115,.2)}.btn-generate:hover{filter:brightness(1.1)}.btn-generate:active{transform:scale(.98)}@media (max-width:400px){.ball{width:58px;height:58px;font-size:1.3rem}h1{font-size:1.6rem}}
+:root{--bg:#0a0c10;--card:#161a23;--primary:#008751;--gold:#d4af37;--text:#ffffff;--text-dim:#8892b0;--ball-red:radial-gradient(circle at 30% 30%, #ff5f5f, #b30000);--ball-blue:radial-gradient(circle at 30% 30%, #5ba4ff, #0047ab);--ball-green:radial-gradient(circle at 30% 30%, #4cd137, #228b22)}*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,sans-serif}body{background-color:var(--bg);background-image:radial-gradient(at 0 0,rgba(0,135,81,.15) 0,transparent 50%),radial-gradient(at 100% 100%,rgba(212,175,55,.1) 0,transparent 50%);color:var(--text);display:flex;justify-content:center;align-items:center;min-height:100vh;overflow:hidden}.container{width:100%;max-width:450px;height:95vh;display:flex;flex-direction:column;padding:1.5rem;position:relative}.header{text-align:center;margin-bottom:1.5rem;padding:1rem;background:rgba(255,255,255,.02);border-radius:24px;border:1px solid rgba(255,255,255,.05)}.jp-title{font-size:1.5rem;color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-weight:700}.jp-amount{font-size:2.4rem;font-weight:800;margin:.3rem 0;font-variant-numeric:tabular-nums;color:#fff}.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08)}.stat-item{text-align:center}.stat-label{font-size:.65rem;color:var(--text-dim);text-transform:uppercase}.stat-value{font-size:.9rem;font-weight:600;color:var(--text)}.prev-draw-panel{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:1rem;margin-bottom:1.5rem}.panel-label{font-size:.7rem;color:var(--text-dim);margin-bottom:12px;display:flex;justify-content:space-between}.ball-row{display:flex;justify-content:center;gap:8px}#display-area{flex-grow:1;display:flex;flex-wrap:wrap;justify-content:center;align-content:center;gap:12px;margin-bottom:1.5rem}.ball{width:62px;height:62px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:1.5rem;font-weight:800;color:#fff;box-shadow:0 8px 16px rgba(0,0,0,.4);animation:.4s cubic-bezier(.175,.885,.32,1.275) forwards popIn}.ball.mini{width:30px;height:30px;font-size:.8rem;box-shadow:none}.red{background:var(--ball-red)}.blue{background:var(--ball-blue)}.green{background:var(--ball-green)}.controls-group{background:var(--card);border-radius:50px;padding:5px;display:flex;margin-bottom:1rem;border:1px solid rgba(255,255,255,.05)}.controls-group label{flex:1;text-align:center;padding:10px;cursor:pointer;border-radius:50px;transition:.2s;font-weight:600;color:var(--text-dim);font-size:.9rem}.controls-group input:checked+label{background:var(--primary);color:#fff}.controls-group input{display:none}.btn-action{background:var(--text);color:var(--bg);border:none;width:100%;padding:18px;border-radius:18px;font-size:1.1rem;font-weight:800;cursor:pointer;transition:.2s;text-transform:uppercase;letter-spacing:1px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2;min-height:85px}.btn-action .timer{font-size:1.1rem;font-weight:600;color:#ff3b30;margin-top:6px;font-family:'Segoe UI',system-ui,sans-serif;letter-spacing:0}.btn-action:active{transform:scale(.97);background:var(--gold)}.footer-link{text-align:center;margin-top:1.5rem}.footer-link a{color:var(--gold);text-decoration:none;font-size:.8rem;font-weight:600;opacity:.8;transition:.3s;padding:5px 15px;border:1px solid var(--gold);border-radius:20px}.footer-link a:hover{opacity:1;background:rgba(212,175,55,.1)}@keyframes popIn{from{transform:scale(0) rotate(-45deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
     </style>
 </head>
 <body>
 
 <div class="container">
-    <header>
-        <h1 style="color: white;">六合彩</h1>
-        <p class="subtitle"><a href="https://bet.hkjc.com/ch/marksix" target="_blank" style="color: white;">HKJC Mark Six Official</a></p>
-    </header>
-
-    <div class="controls">
-        <div class="radio-group">
-            <input type="radio" id="six" name="count" value="6" checked>
-            <label for="six">6 號碼</label>
-            
-            <input type="radio" id="seven" name="count" value="7">
-            <label for="seven">7 號碼</label>
-            
-            <input type="radio" id="eight" name="count" value="8">
-            <label for="eight">8 號碼</label>
+    <div class="header">
+        <p class="jp-title">🫡估計頭獎基金</p>
+        <h1 class="jp-amount" id="jp-val">$ --,---,---</h1>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <p class="stat-label">攪珠日期</p>
+                <p class="stat-value" id="draw-date">---- -- --</p>
+            </div>
+            <div class="stat-item">
+                <p class="stat-label">總投注額</p>
+                <p class="stat-value" id="invest-val">$ --,---,---</p>
+            </div>
         </div>
     </div>
 
-    <div id="numbers-display"></div>
+    <div class="prev-draw-panel">
+        <div class="panel-label">
+            <span>上期結果 (#<span id="prev-no">--</span>)</span>
+            <span id="prev-date-top">-- --</span>
+        </div>
+        <div class="ball-row" id="prev-balls"></div>
+    </div>
 
-    <div class="footer-actions">
-        <button class="btn-generate" onclick="generateNumbers()">運財號碼</button>
+    <div id="display-area"></div>
+
+    <div class="controls-group">
+        <input type="radio" id="n6" name="count" value="6" checked onclick="generateNumbers()">
+        <label for="n6">6 號碼</label>
+        <input type="radio" id="n7" name="count" value="7" onclick="generateNumbers()">
+        <label for="n7">7 號碼</label>
+        <input type="radio" id="n8" name="count" value="8" onclick="generateNumbers()">
+        <label for="n8">8 號碼</label>
+    </div>
+
+    <button class="btn-action" id="main-btn" onclick="generateNumbers()">
+        <span>運財號碼</span>
+        <div class="timer" id="countdown">--</div>
+    </button>
+
+    <div class="footer-link">
+        <a href="https://bet.hkjc.com/ch/marksix" target="_blank">馬會六合彩官方網站 🔗</a>
     </div>
 </div>
 
 <script>
-eval((function(s){var a,c,e,i,j,o="",r,t="#%&?@FJKPQVWXYZ^jz|~";for(i=0;i<s.length;i++){r=t+s[i][2];a=s[i][1].split("");for(j=a.length - 1;j>=0;j--){s[i][0]=s[i][0].split(r.charAt(j)).join(a[j]);}o+=s[i][0];}return o.replace(//g,"\n").replace(//g,"\"");})([["// Color mappg configurationsRED[1F78~2~3~8~9F3F4F9303435X0X5X6];BLUE[3X9~0~4~5F0F5F6313637X1X2X7X8];Q[56~1~6~7F1F2F7F832333839X3X4X9];Jon K?REDred'?BLUEblue'?Qgreen''';}Jon %s().getPtById('-'parseInt(j^]:checked').value?@.vibrate)@.vibrate(40}W.nHTML'';W[]while(.length < )rMath.floor(Math.random() * 49) + 1if(.VOf(r) === -1) .push(r}W// Sort |icy.sort((abz a - b);W.forEach((|VzsetTimeout((zb.createPt("+
-"'div'csKs(|b.className`b ${cs}`b.nText|.appendChild(b}V * 80});}jAll^]').forEach(radio =>radio.addEventListen('change'%s);});&.onload%s;",
-"        numbersconst     ); = , olorClasreturn s(num)_NUMS {allindocumentdisplay.clucount    ;erde) 'genate#Numbwdowif (tor2functigetBCElemenGREENdex4.quySe('put[Zname=Ylec@) =>num1&.naviga",
+eval((function(s){var a,c,e,i,j,o="",r,t="#@^|~";for(i=0;i<s.length;i++){r=t+s[i][2];a=s[i][1].split("");for(j=a.length - 1;j>=0;j--){s[i][0]=s[i][0].split(r.charAt(j)).join(a[j]);}o+=s[i][0];}var p=3071;var x=function(r){var c,p,s,l='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789';if(r<63)c=l.charAt(r);else{r-=63;p=Math.floor(r/63);s=r%63;c=l.charAt(p)+l.charAt(s)}return c;};a=o.substr(p).split(':');r=a[1].split('?');a=a[0].split('?');o=o.substr(0,p);if(!''.replace(/^/,String)){var z={};for(i=0;i<81;i++){var y=x(i);z[y]=r[i]||y}t=/\b\w\w?\b/g;y=function(a){return z[a]||a};o=o.replace(t,y);}else{for(j=a[a.length-1]-1;j>=0;j--){if(r[j])o=o.replace(new RegExp('\b'+(j<63?c.charAt(j):c.charAt((j-63)/63)+c.charAt((j-63)%63))+'\b','g'),r[j])}}return o.replace(//g,"\n").replace(//g,"\"");})([["    V =red: [127812131819232429303435404546],blue: [34910141520252631363741424748],green: [561116172122272832333839434449]}aa v[];aa wnullunObject.keys(V).fd(cV[c].F(n))async H af()try {resao fetch('https://hkjc.azurewebsites.net/api/fo'){ aj }ao res.json()Laj.O[0]Aaj.O[1]jp-val')`$${E(A.T.derivedFirstPrizeDiv).I()}`d~-aq')A.ag0]vest-val')`$${E(A.T.totalInvestment).I()}`PA.p.F('+') ? A.p0] : A.pp#"+
+"P)w#p.getTime() + 1560000)ai-no')L.noai-aq-top')L.ag0]amai-balls')am.ab''[...L.X.d~nNoL.X.xD~nNo].M((ni^bk.N('div'b.ae`ar mi ${u(n)}`bnac(i === 6) b.style.margLeft10pxam.U(b)})J(} catch (e) {console.error(API Error}}H J()zcountdown'R(){ac (!w) Snow#)xw - nowac (x <= 0 && x > -al)z攪珠進行中...S}@(x <= -al)z攪珠已完成S}dx /Y24))h(x %Y24)) /Y))m(x %Y)) /))s(x %)) / y)aa qac (d > 0)d}d ${h"+
+"} 小時 ${m@(h > 0)h} 小時 ${m@(m > 0)m Wsz⌛  + q}R(setInterval(Ry);}H G()BB-area'adE(k.querySelector('put[name=ad]:checked').valuev.M(tclearTimeout(t)v[]B.ab''aa K[]while(K.length < ad) {aa rD.random()49) + 1ac(!K.F(r)) K.ap(r}K.sort((a,b)a-b).M((ni){tsetTimeout((^bk.N('div'b.ae`ar ${u(n)}`bnB.U(b)}i100)v.ap(t})ac(Q._.ah) Q._.ah(30);}Q.onload(^af(G();};0?81:?????getElementById?const???nerText?document?toS"+
+"trg???padStart?closeD|timeStr????getBallColor?timeouts?d~Time?diff?1000?timerEl?next?display?floor?Math?parseInt?cludes?generateNumbers?function?toLocaleStrg?startCountdown?nums?last?forEach?createElement?lotteryD~s?closeDateStr?wdow?upd|return?lotteryPool?appendChild?COLORS?else?d~Result?60?split?navigator???????????let?nerHTML?if?count?className?itData?d~D|vibr|prev?data?D|3600000?row?new?await?push?d|ball",
+"        ;             { = , .l().o(2 (y * Y'0')k.f(');.j;.Z('+')[q`${} 秒`}D.C( =>  * g } 分 ${san ak( W ac ) =>ate?rawin",
 ""]]));
 </script>
-
 </body>
 </html>
